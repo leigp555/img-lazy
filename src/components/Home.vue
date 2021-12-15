@@ -1,12 +1,15 @@
 <template>
-  <div id="container">
-    <div class="img" v-for="url in urls" :key="url">
-      <img class="picture" :data-src="url" alt="加载中" src=""/>
+  <div id="wrapper">
+    <div id="container">
+      <div class="img" v-for="url in urls" :key="url">
+        <img class="picture" :data-src="url" alt="加载中" src=""/>
+      </div>
     </div>
   </div>
 </template>
 <script lang="ts">
 import {defineComponent, onMounted, ref} from 'vue'
+
 export default defineComponent({
   setup() {
     const urls = ref([
@@ -21,7 +24,7 @@ export default defineComponent({
     onMounted(() => {
       //获取页面所有的img元素
       const images = document.getElementsByTagName("img");
-      const container = document.getElementById("container")
+      const container = document.getElementById("wrapper")
       //获取可视区的高度
       const viewHeight = container!.getBoundingClientRect().bottom
       let num = 0;
@@ -56,21 +59,23 @@ export default defineComponent({
 })
 </script>
 <style lang="scss" scoped>
-#container {
+#wrapper {
   height: 400px;
-  border: 3px solid #333;
+  width: 350px;
+  margin: 150px auto;
   overflow: auto;
-  display: inline-block;
-}
-
-.img {
-  width: 200px;
-  background-color: gray;
-  margin-bottom: 20px;
-}
-
-.picture {
-  width: 100%;
-  height: 100%;
+  border: 3px solid #333;
+  >#container {
+    display: inline-block;
+    >.img {
+      background-color: orange;
+      margin-bottom:20px;
+      >.picture {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+    }
+  }
 }
 </style>
