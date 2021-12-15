@@ -5,10 +5,8 @@
     </div>
   </div>
 </template>
-
 <script lang="ts">
 import {defineComponent, onMounted, ref} from 'vue'
-
 export default defineComponent({
   setup() {
     const urls = ref([
@@ -57,7 +55,6 @@ export default defineComponent({
   },
 })
 </script>
-
 <style lang="scss" scoped>
 #container {
   height: 400px;
