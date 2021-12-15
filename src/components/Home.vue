@@ -70,6 +70,9 @@ export default defineComponent({
     >.img {
       background-color: orange;
       margin-bottom:20px;
+      &:last-child{
+        margin-bottom:0;
+      }
       >.picture {
         width: 100%;
         height: 100%;
